@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI für Arztpraxen | Telefonassistent, Terminvergabe &amp; Rezeptservice</title>
+    <meta name="description" content="KI-Lösungen speziell für Arztpraxen: Automatische Anrufannahme, intelligente Terminvergabe und digitaler Rezeptservice. DSGVO-konform, in 24h einsatzbereit.">
+    <meta name="keywords" content="KI Arztpraxis, KI für Arztpraxen, Telefonassistent Arztpraxis, digitale Arztpraxis, KI Terminvergabe Arzt">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="track by track GmbH">
+    <link rel="canonical" href="https://kifuerarztpraxen.de/">
+    <meta property="og:title" content="KI für Arztpraxen | Telefonassistent, Terminvergabe &amp; Rezeptservice">
+    <meta property="og:description" content="KI-Lösungen speziell für Arztpraxen: Automatische Anrufannahme, intelligente Terminvergabe und digitaler Rezeptservice. DSGVO-konform, in 24h einsatzbereit.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kifuerarztpraxen.de/">
+    <meta property="og:locale" content="de_DE">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2D6A4F',
+                        accent: '#40916C',
+                        warmwhite: '#FEFAE0',
+                        warmgray: '#F5F0DC',
+                        darkgreen: '#1B4332',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-btn.active { background-color: #2D6A4F; color: white; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-answer.open { max-height: 500px; }
+        .faq-chevron { transition: transform 0.3s ease; }
+        .faq-chevron.open { transform: rotate(180deg); }
+        input[type="range"] { -webkit-appearance: none; appearance: none; height: 8px; border-radius: 4px; background: #d4c9a8; outline: none; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #2D6A4F; cursor: pointer; border: 3px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+        input[type="range"]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: #2D6A4F; cursor: pointer; border: 3px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+        .hero-pattern { background-image: radial-gradient(circle at 20% 50%, rgba(45,106,79,0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(64,145,108,0.05) 0%, transparent 50%), radial-gradient(circle at 50% 80%, rgba(45,106,79,0.03) 0%, transparent 50%); }
+    </style>
+
+    <!-- Schema.org Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "track by track GmbH",
+        "url": "https://kifuerarztpraxen.de",
+        "logo": "https://kifuerarztpraxen.de/logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+49-30-403665430",
+            "contactType": "sales",
+            "areaServed": "DE",
+            "availableLanguage": "German"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Schliemannstr. 23",
+            "addressLocality": "Berlin",
+            "postalCode": "10437",
+            "addressCountry": "DE"
+        }
+    }
+    </script>
+
+    <!-- Schema.org SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "KI für Arztpraxen",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Cloud-basiert",
+        "description": "KI-Lösungen speziell für Arztpraxen: Automatische Anrufannahme, intelligente Terminvergabe und digitaler Rezeptservice.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "description": "Kostenlose Demo verfügbar"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "track by track GmbH"
+        }
+    }
+    </script>
+
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "KI für Arztpraxen – track by track GmbH",
+        "url": "https://kifuerarztpraxen.de",
+        "telephone": "+49-30-403665430",
+        "email": "hi@kifuerarztpraxen.de",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Schliemannstr. 23",
+            "addressLocality": "Berlin",
+            "postalCode": "10437",
+            "addressCountry": "DE"
+        },
+        "priceRange": "$$"
+    }
+    </script>
+
+    <!-- Schema.org FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Ist die KI-Lösung DSGVO-konform?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ja, vollständig. Alle Daten werden ausschließlich auf deutschen Servern verarbeitet und gespeichert. Wir erfüllen alle Anforderungen der DSGVO sowie die spezifischen Datenschutzanforderungen im Gesundheitswesen. Ein Auftragsverarbeitungsvertrag (AVV) ist selbstverständlich Bestandteil jedes Vertrags."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Wie lange dauert die Einrichtung?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Die Grundeinrichtung dauert in der Regel weniger als 24 Stunden. Nach einem kurzen Onboarding-Gespräch konfigurieren wir die KI für Ihre Praxis, inkl. Sprechzeiten, Leistungsspektrum und individuelle Abläufe. Die KI lernt kontinuierlich dazu und wird mit jeder Woche besser."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Funktioniert die KI mit meiner Praxissoftware?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Unsere Lösung ist mit allen gängigen PVS kompatibel, darunter CGM MEDISTAR, medatixx, CompuGroup ALBIS, Dampsoft, T2med und viele weitere. Die Integration erfolgt über standardisierte Schnittstellen und wird von unserem Team durchgeführt."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Was passiert bei komplexen medizinischen Anfragen?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Die KI erkennt automatisch, wenn eine Anfrage über Standard-Abläufe hinausgeht oder medizinisch dringend ist. In solchen Fällen wird der Anruf sofort an Ihr Praxisteam weitergeleitet. Sie behalten jederzeit die volle Kontrolle über alle Prozesse."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Wie hoch sind die Kosten?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Unsere Preise richten sich nach der Praxisgröße und den gewünschten Modulen. Die meisten Praxen starten ab 290 Euro pro Monat. Durch die Entlastung Ihres Teams und die Steigerung der Patientenzufriedenheit amortisiert sich die Investition in der Regel innerhalb weniger Wochen."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Können Patienten auch weiterhin persönlich anrufen?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Selbstverständlich. Die KI ergänzt Ihr Team, sie ersetzt es nicht. Patienten können jederzeit mit einer echten Person sprechen. Die KI übernimmt vor allem Routineanfragen wie Terminvereinbarungen, Rezeptbestellungen und allgemeine Informationen – damit Ihr Team Zeit für persönliche Betreuung hat."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Brauche ich spezielle Hardware?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Nein. Unsere Lösung ist vollständig cloudbasiert und benötigt keine zusätzliche Hardware. Sie funktioniert mit Ihrem bestehenden Telefonanschluss und Ihrer vorhandenen IT-Infrastruktur. Eine stabile Internetverbindung ist die einzige Voraussetzung."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Gibt es eine Testphase?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ja, wir bieten eine 14-tägige kostenlose Testphase an. In dieser Zeit können Sie alle Funktionen unverbindlich testen und sich von der Leistungsfähigkeit unserer KI überzeugen. Es gibt keine versteckten Kosten und keine automatische Verlängerung."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="font-sans text-gray-800 bg-warmwhite">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-warmwhite/95 backdrop-blur-sm z-50 border-b border-primary/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <span class="font-bold text-primary text-lg">KI<span class="text-accent">fuerArztpraxen</span></span>
+                </a>
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#probleme" class="text-gray-600 hover:text-primary transition">Herausforderungen</a>
+                    <a href="#loesungen" class="text-gray-600 hover:text-primary transition">Lösungen</a>
+                    <a href="#vergleich" class="text-gray-600 hover:text-primary transition">Vergleich</a>
+                    <a href="#rechner" class="text-gray-600 hover:text-primary transition">ROI-Rechner</a>
+                    <a href="#faq" class="text-gray-600 hover:text-primary transition">FAQ</a>
+                    <a href="tel:+4930403665430" class="bg-primary text-white px-5 py-2 rounded-full hover:bg-darkgreen transition text-sm">Jetzt anrufen</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Menü öffnen">
+                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-warmwhite border-t border-primary/10 px-4 py-4 space-y-3">
+            <a href="#probleme" class="block text-gray-600 hover:text-primary transition py-1">Herausforderungen</a>
+            <a href="#loesungen" class="block text-gray-600 hover:text-primary transition py-1">Lösungen</a>
+            <a href="#vergleich" class="block text-gray-600 hover:text-primary transition py-1">Vergleich</a>
+            <a href="#rechner" class="block text-gray-600 hover:text-primary transition py-1">ROI-Rechner</a>
+            <a href="#faq" class="block text-gray-600 hover:text-primary transition py-1">FAQ</a>
+            <a href="tel:+4930403665430" class="block bg-primary text-white text-center px-5 py-2 rounded-full hover:bg-darkgreen transition">Jetzt anrufen</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern pt-28 pb-20 md:pt-36 md:pb-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+                    <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                    DSGVO-konform &middot; Made in Germany &middot; In 24h einsatzbereit
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-darkgreen leading-tight mb-6">
+                    KI für Arztpraxen – <br class="hidden sm:block">Damit Sie sich auf Ihre <span class="text-primary">Patienten</span> konzentrieren können
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Automatische Anrufannahme, intelligente Terminvergabe und digitaler Rezeptservice.
+                    Entlasten Sie Ihr Praxisteam und steigern Sie die Patientenzufriedenheit – ab Tag eins.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="tel:+4930403665430" class="flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-darkgreen transition shadow-lg shadow-primary/20 w-full sm:w-auto justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        +49 30 403665430
+                    </a>
+                    <a href="#loesungen" class="flex items-center gap-2 border-2 border-primary text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-white transition w-full sm:w-auto justify-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                        Jetzt Demo ansehen
+                    </a>
+                </div>
+                <div class="mt-10 flex flex-wrap justify-center gap-6 text-sm text-gray-500">
+                    <span class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        Keine Hardware nötig
+                    </span>
+                    <span class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        14 Tage kostenlos testen
+                    </span>
+                    <span class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        Deutsche Server
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="probleme" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="text-accent font-semibold text-sm uppercase tracking-wider">Die Realität</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-darkgreen mt-2 mb-4">Der Praxisalltag 2025</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Arztpraxen stehen vor beispiellosen Herausforderungen. Diese Zahlen zeigen, warum Handlungsbedarf besteht.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-warmwhite rounded-2xl p-8 border border-primary/10 hover:shadow-lg transition">
+                    <div class="text-5xl font-extrabold text-primary mb-2">&lt;50%</div>
+                    <div class="text-lg font-semibold text-darkgreen mb-2">Telefonische Erreichbarkeit</div>
+                    <p class="text-gray-600 text-sm leading-relaxed">Weniger als die Hälfte aller Anrufe werden in deutschen Arztpraxen angenommen. Patienten landen in endlosen Warteschleifen.</p>
+                    <span class="inline-block mt-3 text-xs text-accent font-medium bg-accent/10 px-3 py-1 rounded-full">KBV-Studie 2024</span>
+                </div>
+                <div class="bg-warmwhite rounded-2xl p-8 border border-primary/10 hover:shadow-lg transition">
+                    <div class="text-5xl font-extrabold text-primary mb-2">38%</div>
+                    <div class="text-lg font-semibold text-darkgreen mb-2">Patientenverlust</div>
+                    <p class="text-gray-600 text-sm leading-relaxed">Mehr als jeder dritte Patient wechselt die Praxis aufgrund schlechter telefonischer Erreichbarkeit – ein vermeidbarer Umsatzverlust.</p>
+                    <span class="inline-block mt-3 text-xs text-accent font-medium bg-accent/10 px-3 py-1 rounded-full">Patientenbefragung 2024</span>
+                </div>
+                <div class="bg-warmwhite rounded-2xl p-8 border border-primary/10 hover:shadow-lg transition">
+                    <div class="text-5xl font-extrabold text-primary mb-2">12.000</div>
+                    <div class="text-lg font-semibold text-darkgreen mb-2">Offene MFA-Stellen</div>
+                    <p class="text-gray-600 text-sm leading-relaxed">Der Fachkräftemangel bei Medizinischen Fachangestellten hat ein kritisches Niveau erreicht – bundesweit fehlen tausende Fachkräfte.</p>
+                    <span class="inline-block mt-3 text-xs text-accent font-medium bg-accent/10 px-3 py-1 rounded-full">Bundesagentur für Arbeit</span>
+                </div>
+                <div class="bg-warmwhite rounded-2xl p-8 border border-primary/10 hover:shadow-lg transition">
+                    <div class="text-5xl font-extrabold text-primary mb-2">42%</div>
+                    <div class="text-lg font-semibold text-darkgreen mb-2">MFA-Burnout-Rate</div>
+                    <p class="text-gray-600 text-sm leading-relaxed">Fast jede zweite MFA zeigt Anzeichen von Burnout. Ständiges Telefonklingeln und Multitasking zählen zu den Hauptursachen.</p>
+                    <span class="inline-block mt-3 text-xs text-accent font-medium bg-accent/10 px-3 py-1 rounded-full">BGW-Gesundheitsreport</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kernprodukte Tabs -->
+    <section id="loesungen" class="py-20 bg-warmwhite">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="text-accent font-semibold text-sm uppercase tracking-wider">Unsere Lösungen</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-darkgreen mt-2 mb-4">Drei Module. Eine Plattform.</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Wählen Sie die Module, die zu Ihrer Praxis passen – oder nutzen Sie alle drei für maximale Entlastung.</p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-2 justify-center mb-10">
+                <button onclick="showTab('telefon')" class="tab-btn active px-6 py-3 rounded-full font-semibold text-sm border-2 border-primary transition" data-tab="telefon">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        KI-Telefonassistent
+                    </span>
+                </button>
+                <button onclick="showTab('termin')" class="tab-btn px-6 py-3 rounded-full font-semibold text-sm border-2 border-primary text-primary transition" data-tab="termin">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        KI-Terminmanagement
+                    </span>
+                </button>
+                <button onclick="showTab('rezept')" class="tab-btn px-6 py-3 rounded-full font-semibold text-sm border-2 border-primary text-primary transition" data-tab="rezept">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        KI-Rezeptservice
+                    </span>
+                </button>
+            </div>
+
+            <!-- Tab: Telefonassistent -->
+            <div id="tab-telefon" class="tab-content active">
+                <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-primary/10">
+                    <div class="grid md:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-darkgreen mb-4">KI-Telefonassistent</h3>
+                            <p class="text-gray-600 mb-6 text-lg leading-relaxed">Ihr digitaler Empfang nimmt jeden Anruf an – rund um die Uhr, an 365 Tagen im Jahr. Die KI versteht natürliche Sprache, beantwortet häufige Fragen und leitet nur wirklich wichtige Anliegen an Ihr Team weiter.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>24/7 Erreichbarkeit</strong> – Kein Anruf bleibt unbeantwortet, auch außerhalb der Sprechzeiten</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>Natürliche Gesprächsführung</strong> – Patienten sprechen wie mit einer echten Person</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>Intelligente Weiterleitung</strong> – Dringende Fälle werden sofort an Ihr Team übergeben</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>Mehrsprachig</strong> – Unterstützung für Deutsch, Englisch, Türkisch und weitere Sprachen</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-warmwhite rounded-2xl p-8 text-center">
+                            <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            </div>
+                            <div class="text-4xl font-extrabold text-primary mb-1">100%</div>
+                            <div class="text-gray-600 mb-4">Erreichbarkeit</div>
+                            <div class="grid grid-cols-2 gap-4 mt-6">
+                                <div class="bg-white rounded-xl p-4">
+                                    <div class="text-2xl font-bold text-darkgreen">3 Sek.</div>
+                                    <div class="text-sm text-gray-500">Antwortzeit</div>
+                                </div>
+                                <div class="bg-white rounded-xl p-4">
+                                    <div class="text-2xl font-bold text-darkgreen">93%</div>
+                                    <div class="text-sm text-gray-500">Lösungsrate</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Terminmanagement -->
+            <div id="tab-termin" class="tab-content">
+                <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-primary/10">
+                    <div class="grid md:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-darkgreen mb-4">KI-Terminmanagement</h3>
+                            <p class="text-gray-600 mb-6 text-lg leading-relaxed">Intelligente Terminvergabe über Telefon und Online – die KI kennt Ihre Sprechzeiten, Behandlungsdauern und Präferenzen. Patienten buchen rund um die Uhr, ohne dass Ihr Team eingreifen muss.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>Online- &amp; Telefon-Buchung</strong> – Patienten wählen ihren bevorzugten Kanal</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>Automatische Erinnerungen</strong> – SMS und E-Mail reduzieren No-Shows um bis zu 40%</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>Wartelisten-Management</strong> – Freigewordene Slots werden automatisch nachbesetzt</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>PVS-Integration</strong> – Direkte Synchronisation mit Ihrem Praxisverwaltungssystem</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-warmwhite rounded-2xl p-8 text-center">
+                            <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div class="text-4xl font-extrabold text-primary mb-1">-40%</div>
+                            <div class="text-gray-600 mb-4">Weniger No-Shows</div>
+                            <div class="grid grid-cols-2 gap-4 mt-6">
+                                <div class="bg-white rounded-xl p-4">
+                                    <div class="text-2xl font-bold text-darkgreen">24/7</div>
+                                    <div class="text-sm text-gray-500">Buchbar</div>
+                                </div>
+                                <div class="bg-white rounded-xl p-4">
+                                    <div class="text-2xl font-bold text-darkgreen">30 Sek.</div>
+                                    <div class="text-sm text-gray-500">Buchungszeit</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Rezeptservice -->
+            <div id="tab-rezept" class="tab-content">
+                <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-primary/10">
+                    <div class="grid md:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-darkgreen mb-4">KI-Rezeptservice</h3>
+                            <p class="text-gray-600 mb-6 text-lg leading-relaxed">Patienten bestellen Folgerezepte per Telefon oder Online – die KI prüft die Anfrage, gleicht sie mit der Patientenakte ab und legt sie dem Arzt zur Freigabe vor. Fertige Rezepte werden automatisch avisiert.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>Automatische Vorprüfung</strong> – Die KI erkennt Folgerezepte und prüft Plausibilität</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>Arzt-Freigabe per Klick</strong> – Der Arzt bestätigt mit einem Klick in der App</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>Patienten-Benachrichtigung</strong> – Automatische Info, wenn das Rezept abholbereit ist</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><strong>E-Rezept-kompatibel</strong> – Volle Unterstützung des E-Rezept-Workflows</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-warmwhite rounded-2xl p-8 text-center">
+                            <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            </div>
+                            <div class="text-4xl font-extrabold text-primary mb-1">85%</div>
+                            <div class="text-gray-600 mb-4">Weniger Telefonanfragen für Rezepte</div>
+                            <div class="grid grid-cols-2 gap-4 mt-6">
+                                <div class="bg-white rounded-xl p-4">
+                                    <div class="text-2xl font-bold text-darkgreen">2 Min.</div>
+                                    <div class="text-sm text-gray-500">Bestellzeit</div>
+                                </div>
+                                <div class="bg-white rounded-xl p-4">
+                                    <div class="text-2xl font-bold text-darkgreen">4 Std.</div>
+                                    <div class="text-sm text-gray-500">Ø Bereitstellung</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vergleichstabelle -->
+    <section id="vergleich" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="text-accent font-semibold text-sm uppercase tracking-wider">Der Unterschied</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-darkgreen mt-2 mb-4">Ohne KI vs. Mit KI</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Sehen Sie auf einen Blick, wie KI Ihren Praxisalltag transformiert.</p>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full bg-warmwhite rounded-2xl overflow-hidden">
+                    <thead>
+                        <tr>
+                            <th class="text-left py-5 px-6 text-sm font-semibold text-gray-500 uppercase tracking-wider">Bereich</th>
+                            <th class="text-center py-5 px-6 bg-red-50 text-sm font-semibold text-red-700 uppercase tracking-wider">Ohne KI</th>
+                            <th class="text-center py-5 px-6 bg-primary/10 text-sm font-semibold text-primary uppercase tracking-wider">Mit KI</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-primary/5">
+                        <tr>
+                            <td class="py-4 px-6 font-medium">Telefonische Erreichbarkeit</td>
+                            <td class="py-4 px-6 text-center text-red-600 font-medium">40–60%</td>
+                            <td class="py-4 px-6 text-center text-primary font-bold">100%</td>
+                        </tr>
+                        <tr class="bg-white/50">
+                            <td class="py-4 px-6 font-medium">Terminvergabe</td>
+                            <td class="py-4 px-6 text-center text-red-600 font-medium">Nur zu Sprechzeiten</td>
+                            <td class="py-4 px-6 text-center text-primary font-bold">24/7, auch online</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 font-medium">Wartezeit am Telefon</td>
+                            <td class="py-4 px-6 text-center text-red-600 font-medium">8–15 Minuten</td>
+                            <td class="py-4 px-6 text-center text-primary font-bold">Unter 3 Sekunden</td>
+                        </tr>
+                        <tr class="bg-white/50">
+                            <td class="py-4 px-6 font-medium">Rezeptbestellungen</td>
+                            <td class="py-4 px-6 text-center text-red-600 font-medium">Anruf + Warteschleife</td>
+                            <td class="py-4 px-6 text-center text-primary font-bold">Automatisch in 2 Min.</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 font-medium">MFA-Belastung durch Telefon</td>
+                            <td class="py-4 px-6 text-center text-red-600 font-medium">60–70% der Arbeitszeit</td>
+                            <td class="py-4 px-6 text-center text-primary font-bold">Unter 15%</td>
+                        </tr>
+                        <tr class="bg-white/50">
+                            <td class="py-4 px-6 font-medium">No-Show-Rate</td>
+                            <td class="py-4 px-6 text-center text-red-600 font-medium">15–20%</td>
+                            <td class="py-4 px-6 text-center text-primary font-bold">Unter 8%</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 font-medium">Patientenzufriedenheit</td>
+                            <td class="py-4 px-6 text-center text-red-600 font-medium">Mittel</td>
+                            <td class="py-4 px-6 text-center text-primary font-bold">Deutlich erhöht</td>
+                        </tr>
+                        <tr class="bg-white/50">
+                            <td class="py-4 px-6 font-medium">Kosten pro Patientenkontakt</td>
+                            <td class="py-4 px-6 text-center text-red-600 font-medium">3,50–5,00 EUR</td>
+                            <td class="py-4 px-6 text-center text-primary font-bold">0,15–0,40 EUR</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI-Rechner -->
+    <section id="rechner" class="py-20 bg-warmwhite">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="text-accent font-semibold text-sm uppercase tracking-wider">Ihr Potenzial</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-darkgreen mt-2 mb-4">ROI-Rechner für Ihre Praxis</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Berechnen Sie in 30 Sekunden, wie viel Zeit und Geld Sie mit KI sparen können.</p>
+            </div>
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-primary/10 max-w-4xl mx-auto">
+                <div class="space-y-8">
+                    <!-- Slider 1: Patienten -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="font-semibold text-darkgreen">Patienten pro Tag</label>
+                            <span id="patienten-val" class="text-primary font-bold text-lg bg-primary/10 px-3 py-1 rounded-lg">50</span>
+                        </div>
+                        <input type="range" id="patienten" min="20" max="100" value="50" class="w-full" oninput="updateROI()">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1"><span>20</span><span>100</span></div>
+                    </div>
+                    <!-- Slider 2: Anrufe -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="font-semibold text-darkgreen">Anrufe pro Tag</label>
+                            <span id="anrufe-val" class="text-primary font-bold text-lg bg-primary/10 px-3 py-1 rounded-lg">80</span>
+                        </div>
+                        <input type="range" id="anrufe" min="30" max="200" value="80" class="w-full" oninput="updateROI()">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1"><span>30</span><span>200</span></div>
+                    </div>
+                    <!-- Slider 3: MFA-Gehalt -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="font-semibold text-darkgreen">MFA-Jahresgehalt (brutto)</label>
+                            <span id="gehalt-val" class="text-primary font-bold text-lg bg-primary/10 px-3 py-1 rounded-lg">35.000 &euro;</span>
+                        </div>
+                        <input type="range" id="gehalt" min="28000" max="45000" value="35000" step="1000" class="w-full" oninput="updateROI()">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1"><span>28.000 &euro;</span><span>45.000 &euro;</span></div>
+                    </div>
+
+                    <hr class="border-primary/10">
+
+                    <!-- Results -->
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-warmwhite rounded-2xl p-6 text-center">
+                            <div class="text-sm text-gray-500 mb-1">Jährliche Einsparung</div>
+                            <div id="result-einsparung" class="text-3xl font-extrabold text-primary">18.900 &euro;</div>
+                            <div class="text-xs text-gray-400 mt-1">Personalkosten &amp; Effizienz</div>
+                        </div>
+                        <div class="bg-warmwhite rounded-2xl p-6 text-center">
+                            <div class="text-sm text-gray-500 mb-1">Zeitgewinn pro Woche</div>
+                            <div id="result-zeit" class="text-3xl font-extrabold text-primary">22 Std.</div>
+                            <div class="text-xs text-gray-400 mt-1">Mehr Zeit für Patienten</div>
+                        </div>
+                        <div class="bg-warmwhite rounded-2xl p-6 text-center">
+                            <div class="text-sm text-gray-500 mb-1">Mehr Patienten/Monat</div>
+                            <div id="result-patienten" class="text-3xl font-extrabold text-primary">+65</div>
+                            <div class="text-xs text-gray-400 mt-1">Durch bessere Erreichbarkeit</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <a href="https://kirezeptionist.de" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-darkgreen transition">
+                        Detaillierten Konfigurator auf kirezeptionist.de öffnen
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Geo-SEO -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="text-accent font-semibold text-sm uppercase tracking-wider">Bundesweit verfügbar</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-darkgreen mt-2 mb-4">KI für Arztpraxen in Ihrer Region</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Unsere Lösung ist in ganz Deutschland einsatzbereit – ohne regionale Einschränkungen.</p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Berlin</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Hamburg</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen München</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Köln</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Frankfurt</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Stuttgart</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Düsseldorf</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Leipzig</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Dortmund</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Essen</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Bremen</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Dresden</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Hannover</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Nürnberg</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Duisburg</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Bochum</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Wuppertal</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Bielefeld</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Bonn</a>
+                <a href="#kontakt" class="bg-warmwhite hover:bg-primary/10 border border-primary/10 rounded-xl px-4 py-3 text-center text-sm font-medium text-darkgreen transition">KI für Arztpraxen Mannheim</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-warmwhite">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="text-accent font-semibold text-sm uppercase tracking-wider">Erfahrungen</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-darkgreen mt-2 mb-4">Was Praxen über uns sagen</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-primary/10">
+                    <div class="flex gap-1 mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <blockquote class="text-gray-600 mb-6 leading-relaxed italic">&bdquo;Seit wir den KI-Telefonassistenten nutzen, erreichen uns keine Beschwerden mehr über besetzte Leitungen. Unsere MFAs können sich endlich wieder auf die Patienten vor Ort konzentrieren. Die Einrichtung war erstaunlich einfach.&ldquo;</blockquote>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-sm">DR</div>
+                        <div>
+                            <div class="font-semibold text-darkgreen">Dr. med. Sabine Richter</div>
+                            <div class="text-sm text-gray-500">Hausarztpraxis, Berlin-Prenzlauer Berg</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-primary/10">
+                    <div class="flex gap-1 mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <blockquote class="text-gray-600 mb-6 leading-relaxed italic">&bdquo;Mit drei Standorten und 15 Ärzten war unsere Telefonzentrale am Limit. Die KI hat die Situation komplett entschärft. Besonders der automatische Rezeptservice spart uns täglich mehrere Stunden Arbeit.&ldquo;</blockquote>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-sm">MW</div>
+                        <div>
+                            <div class="font-semibold text-darkgreen">Michael Weber, Praxismanager</div>
+                            <div class="text-sm text-gray-500">MVZ Alster, Hamburg</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-primary/10">
+                    <div class="flex gap-1 mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <blockquote class="text-gray-600 mb-6 leading-relaxed italic">&bdquo;Als orthopädische Fachpraxis mit hohem Terminaufkommen war die Online-Terminvergabe ein Gamechanger. Die No-Show-Rate ist um 35% gesunken und unsere Patienten schätzen die unkomplizierte Buchung sehr.&ldquo;</blockquote>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-sm">DK</div>
+                        <div>
+                            <div class="font-semibold text-darkgreen">Dr. med. Thomas Krüger</div>
+                            <div class="text-sm text-gray-500">Facharztpraxis für Orthopädie, München</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="text-accent font-semibold text-sm uppercase tracking-wider">Fragen &amp; Antworten</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-darkgreen mt-2 mb-4">Häufig gestellte Fragen</h2>
+            </div>
+            <div class="space-y-3">
+                <div class="bg-warmwhite rounded-xl border border-primary/10 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-darkgreen hover:text-primary transition">
+                        <span>Ist die KI-Lösung DSGVO-konform?</span>
+                        <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer px-5">
+                        <p class="pb-5 text-gray-600 leading-relaxed">Ja, vollständig. Alle Daten werden ausschließlich auf deutschen Servern verarbeitet und gespeichert. Wir erfüllen alle Anforderungen der DSGVO sowie die spezifischen Datenschutzanforderungen im Gesundheitswesen. Ein Auftragsverarbeitungsvertrag (AVV) ist selbstverständlich Bestandteil jedes Vertrags.</p>
+                    </div>
+                </div>
+                <div class="bg-warmwhite rounded-xl border border-primary/10 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-darkgreen hover:text-primary transition">
+                        <span>Wie lange dauert die Einrichtung?</span>
+                        <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer px-5">
+                        <p class="pb-5 text-gray-600 leading-relaxed">Die Grundeinrichtung dauert in der Regel weniger als 24 Stunden. Nach einem kurzen Onboarding-Gespräch konfigurieren wir die KI für Ihre Praxis, inkl. Sprechzeiten, Leistungsspektrum und individuelle Abläufe. Die KI lernt kontinuierlich dazu und wird mit jeder Woche besser.</p>
+                    </div>
+                </div>
+                <div class="bg-warmwhite rounded-xl border border-primary/10 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-darkgreen hover:text-primary transition">
+                        <span>Funktioniert die KI mit meiner Praxissoftware?</span>
+                        <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer px-5">
+                        <p class="pb-5 text-gray-600 leading-relaxed">Unsere Lösung ist mit allen gängigen PVS kompatibel, darunter CGM MEDISTAR, medatixx, CompuGroup ALBIS, Dampsoft, T2med und viele weitere. Die Integration erfolgt über standardisierte Schnittstellen und wird von unserem Team durchgeführt.</p>
+                    </div>
+                </div>
+                <div class="bg-warmwhite rounded-xl border border-primary/10 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-darkgreen hover:text-primary transition">
+                        <span>Was passiert bei komplexen medizinischen Anfragen?</span>
+                        <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer px-5">
+                        <p class="pb-5 text-gray-600 leading-relaxed">Die KI erkennt automatisch, wenn eine Anfrage über Standard-Abläufe hinausgeht oder medizinisch dringend ist. In solchen Fällen wird der Anruf sofort an Ihr Praxisteam weitergeleitet. Sie behalten jederzeit die volle Kontrolle über alle Prozesse.</p>
+                    </div>
+                </div>
+                <div class="bg-warmwhite rounded-xl border border-primary/10 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-darkgreen hover:text-primary transition">
+                        <span>Wie hoch sind die Kosten?</span>
+                        <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer px-5">
+                        <p class="pb-5 text-gray-600 leading-relaxed">Unsere Preise richten sich nach der Praxisgröße und den gewünschten Modulen. Die meisten Praxen starten ab 290 Euro pro Monat. Durch die Entlastung Ihres Teams und die Steigerung der Patientenzufriedenheit amortisiert sich die Investition in der Regel innerhalb weniger Wochen.</p>
+                    </div>
+                </div>
+                <div class="bg-warmwhite rounded-xl border border-primary/10 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-darkgreen hover:text-primary transition">
+                        <span>Können Patienten auch weiterhin persönlich anrufen?</span>
+                        <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer px-5">
+                        <p class="pb-5 text-gray-600 leading-relaxed">Selbstverständlich. Die KI ergänzt Ihr Team, sie ersetzt es nicht. Patienten können jederzeit mit einer echten Person sprechen. Die KI übernimmt vor allem Routineanfragen wie Terminvereinbarungen, Rezeptbestellungen und allgemeine Informationen – damit Ihr Team Zeit für persönliche Betreuung hat.</p>
+                    </div>
+                </div>
+                <div class="bg-warmwhite rounded-xl border border-primary/10 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-darkgreen hover:text-primary transition">
+                        <span>Brauche ich spezielle Hardware?</span>
+                        <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer px-5">
+                        <p class="pb-5 text-gray-600 leading-relaxed">Nein. Unsere Lösung ist vollständig cloudbasiert und benötigt keine zusätzliche Hardware. Sie funktioniert mit Ihrem bestehenden Telefonanschluss und Ihrer vorhandenen IT-Infrastruktur. Eine stabile Internetverbindung ist die einzige Voraussetzung.</p>
+                    </div>
+                </div>
+                <div class="bg-warmwhite rounded-xl border border-primary/10 overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-darkgreen hover:text-primary transition">
+                        <span>Gibt es eine Testphase?</span>
+                        <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer px-5">
+                        <p class="pb-5 text-gray-600 leading-relaxed">Ja, wir bieten eine 14-tägige kostenlose Testphase an. In dieser Zeit können Sie alle Funktionen unverbindlich testen und sich von der Leistungsfähigkeit unserer KI überzeugen. Es gibt keine versteckten Kosten und keine automatische Verlängerung.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Finale -->
+    <section id="kontakt" class="py-20 bg-primary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Bereit, Ihre Praxis zu entlasten?</h2>
+            <p class="text-primary/80 text-lg mb-10 max-w-2xl mx-auto" style="color: rgba(255,255,255,0.8);">Starten Sie jetzt mit einer kostenlosen 14-Tage-Testphase. Keine Kreditkarte, keine Verpflichtung – einfach ausprobieren und überzeugen lassen.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="tel:+4930403665430" class="flex items-center gap-3 bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-warmwhite transition shadow-lg w-full sm:w-auto justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    +49 30 403665430
+                </a>
+                <a href="mailto:hi@kifuerarztpraxen.de" class="flex items-center gap-2 border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-primary transition w-full sm:w-auto justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    E-Mail schreiben
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darkgreen text-white/70 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-10">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        </div>
+                        <span class="font-bold text-white text-lg">KIfuerArztpraxen</span>
+                    </div>
+                    <p class="text-sm leading-relaxed">KI-Lösungen speziell für den deutschen Gesundheitsmarkt. DSGVO-konform und in 24 Stunden einsatzbereit.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Produkte</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#loesungen" class="hover:text-white transition">KI-Telefonassistent</a></li>
+                        <li><a href="#loesungen" class="hover:text-white transition">KI-Terminmanagement</a></li>
+                        <li><a href="#loesungen" class="hover:text-white transition">KI-Rezeptservice</a></li>
+                        <li><a href="#rechner" class="hover:text-white transition">ROI-Rechner</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Ressourcen</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="#vergleich" class="hover:text-white transition">Vergleich</a></li>
+                        <li><a href="https://kirezeptionist.de" target="_blank" rel="noopener" class="hover:text-white transition">kirezeptionist.de</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Kontakt</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="tel:+4930403665430" class="hover:text-white transition">+49 30 403665430</a></li>
+                        <li><a href="mailto:hi@kifuerarztpraxen.de" class="hover:text-white transition">hi@kifuerarztpraxen.de</a></li>
+                        <li>Schliemannstr. 23, 10437 Berlin</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-white/10 mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+                <p>&copy; 2026 track by track GmbH. Alle Rechte vorbehalten.</p>
+                <div class="flex gap-6">
+                    <a href="#impressum" class="hover:text-white transition">Impressum</a>
+                    <a href="#datenschutz" class="hover:text-white transition">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Impressum -->
+    <section id="impressum" class="py-16 bg-warmwhite">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-darkgreen mb-6">Impressum</h2>
+            <div class="bg-white rounded-2xl p-8 border border-primary/10 text-gray-600 leading-relaxed space-y-4">
+                <div>
+                    <strong class="text-darkgreen">Angaben gemäß § 5 TMG</strong><br>
+                    track by track GmbH<br>
+                    Schliemannstr. 23<br>
+                    10437 Berlin
+                </div>
+                <div>
+                    <strong class="text-darkgreen">Vertreten durch</strong><br>
+                    Tobias Sander (Geschäftsführer)
+                </div>
+                <div>
+                    <strong class="text-darkgreen">Kontakt</strong><br>
+                    Telefon: <a href="tel:+4930403665430" class="text-primary hover:underline">+49 30 403665430</a><br>
+                    E-Mail: <a href="mailto:hi@kifuerarztpraxen.de" class="text-primary hover:underline">hi@kifuerarztpraxen.de</a>
+                </div>
+                <div>
+                    <strong class="text-darkgreen">Registereintrag</strong><br>
+                    Handelsregister: Amtsgericht Charlottenburg<br>
+                    Registernummer: HRB 129805 B
+                </div>
+                <div>
+                    <strong class="text-darkgreen">Umsatzsteuer-ID</strong><br>
+                    Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br>
+                    DE814954842
+                </div>
+                <div>
+                    <strong class="text-darkgreen">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</strong><br>
+                    Tobias Sander<br>
+                    Schliemannstr. 23<br>
+                    10437 Berlin
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Tab switching
+        function showTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(function(el) { el.classList.remove('active'); });
+            document.querySelectorAll('.tab-btn').forEach(function(el) { el.classList.remove('active'); el.classList.add('text-primary'); });
+            document.getElementById('tab-' + tab).classList.add('active');
+            document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
+            document.querySelector('[data-tab="' + tab + '"]').classList.remove('text-primary');
+        }
+
+        // FAQ accordion
+        function toggleFaq(btn) {
+            var answer = btn.nextElementSibling;
+            var chevron = btn.querySelector('.faq-chevron');
+            var isOpen = answer.classList.contains('open');
+            // Close all
+            document.querySelectorAll('.faq-answer').forEach(function(el) { el.classList.remove('open'); });
+            document.querySelectorAll('.faq-chevron').forEach(function(el) { el.classList.remove('open'); });
+            if (!isOpen) {
+                answer.classList.add('open');
+                chevron.classList.add('open');
+            }
+        }
+
+        // ROI Calculator
+        function updateROI() {
+            var patienten = parseInt(document.getElementById('patienten').value);
+            var anrufe = parseInt(document.getElementById('anrufe').value);
+            var gehalt = parseInt(document.getElementById('gehalt').value);
+
+            document.getElementById('patienten-val').textContent = patienten;
+            document.getElementById('anrufe-val').textContent = anrufe;
+            document.getElementById('gehalt-val').textContent = gehalt.toLocaleString('de-DE') + ' \u20AC';
+
+            // Calculations
+            // Time saved: each call takes ~4 min with MFA, KI handles ~75% of calls
+            var callsHandledByAI = Math.round(anrufe * 0.75);
+            var minutesSavedPerDay = callsHandledByAI * 4;
+            var hoursSavedPerWeek = Math.round((minutesSavedPerDay * 5) / 60);
+
+            // Cost savings: percentage of MFA time freed up * salary + efficiency gains
+            var mfaTimeSavedPercent = Math.min(minutesSavedPerDay / 480, 0.7); // max 70% of 8h day
+            var yearlySaving = Math.round(gehalt * mfaTimeSavedPercent * 1.3 + anrufe * 0.5 * 220);
+
+            // More patients: better reachability = more appointments
+            var morePatientsPerMonth = Math.round(patienten * 0.38 * 0.3 * 22 / 22 * 4.3);
+
+            document.getElementById('result-einsparung').textContent = yearlySaving.toLocaleString('de-DE') + ' \u20AC';
+            document.getElementById('result-zeit').textContent = hoursSavedPerWeek + ' Std.';
+            document.getElementById('result-patienten').textContent = '+' + morePatientsPerMonth;
+        }
+
+        // Initialize ROI on load
+        updateROI();
+    </script>
+</body>
+</html>
